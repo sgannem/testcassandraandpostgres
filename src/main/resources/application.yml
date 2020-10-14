@@ -1,0 +1,43 @@
+spring:
+  profiles:
+    # Bellow active attribute can be used for testing
+    active: "postgres"
+  main:
+    banner-mode: "console"
+  banner.location: banner.txt
+
+server:
+  port: 9081
+  servlet.contextPath: /citizen-service
+
+---
+spring:
+  profiles: postgres
+  jpa:
+    database: POSTGRESQL
+    show-sql: false
+    driverClassName: org.postgresql.Driver
+    properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+    properties.hibernate.temp.use_jdbc_metadata_defaults: false
+    generate-ddl: false
+    hibernate.ddl-auto: none
+    hibernate.show-sql: false
+    hibernate.database: postgresql
+    hibernate.database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate.open-in-view: false
+    hibernate.generate-ddl: false
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=testdb2
+    username: postgres
+    password: postgres
+    testWhileIdle: true
+    validationQuery: "SELECT 1"
+
+---
+spring:
+  profiles: cassandra
+
+
+
+
