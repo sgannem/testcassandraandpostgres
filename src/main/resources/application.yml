@@ -1,18 +1,20 @@
 spring:
   profiles:
     # Bellow active attribute can be used for testing
-    active: "postgres"
+    #active: "postgres"
+    active: "cassandra"
   main:
     banner-mode: "console"
-  banner.location: banner.txt
 
 server:
   port: 9081
   servlet.contextPath: /citizen-service
 
 ---
+
 spring:
   profiles: postgres
+  banner.location: banner-postgres.txt
   jpa:
     database: POSTGRESQL
     show-sql: false
@@ -37,6 +39,10 @@ spring:
 ---
 spring:
   profiles: cassandra
+  banner.location: banner-cassandra.txt
+  data.cassandra.keyspace-name: my_cassandra_test
+  data.cassandra.contact-points: 127.0.0.1
+  data.cassandra.port: 9042
 
 
 
