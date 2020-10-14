@@ -2,13 +2,12 @@ package com.example.entity;
 
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name= "citizen")
+@Table
 public class Citizen implements Serializable {
 
 	@Id
