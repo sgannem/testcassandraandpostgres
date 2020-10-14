@@ -5,6 +5,7 @@ import com.example.entity.QCitizen;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import com.mysema.query.jpa.impl.JPAQuery;
 
@@ -22,7 +23,9 @@ public class CitizenDaoImpl implements CitizenDao {
 
   @Override
   public List<Citizen> findAll() {
-    JPAQuery query = new JPAQuery(this.entityManager);
-    return query.list(QCitizen.citizen);
+    TypedQuery<Citizen> query =
+      entityManager.createQuery("SELECT c FROM Citizen c", Citizen.class);
+    List<Citizen> results = query.getResultList();
+    return results;
   }
 }

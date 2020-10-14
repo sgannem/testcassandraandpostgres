@@ -16,11 +16,18 @@
 * docker exec -it cassandra bash
 * cqlsh
 * create a keyspace called 'my-cassandra-test' using 'SimpleStrategy' class for data replication
-`CREATE KEYSPACE my_cassandra_test WITH REPLICATION={'class': 'SimpleStrategy', 'replication_factor': 1};`
+```
+CREATE KEYSPACE my_cassandra_test WITH REPLICATION={'class': 'SimpleStrategy', 'replication_factor': 1};
+```  
 * list all existing keyspaces
-`SELECT * FROM system_schema.keyspaces;`
+```
+SELECT * FROM system_schema.keyspaces;
+```
 * use the keyspace to create tables
-`USE my_cassandra_test;`
+```
+USE my_cassandra_test;
+```
 * create table.
-`CREATE TABLE citizen ( id VARCHAR,first_name VARCHAR, last_name VARCHAR, email VARCHAR, phone VARCHAR, PRIMARY KEY (id));`
-
+```
+CREATE TABLE citizen ( id VARCHAR,firstname VARCHAR, lastname VARCHAR, email VARCHAR, phone VARCHAR, PRIMARY KEY (id));
+```
