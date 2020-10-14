@@ -1,6 +1,7 @@
 # testcassandraandpostgres
 
-# postgres
+# postgres steps
+
 `CREATE TABLE citizen (
     id VARCHAR,
     first_name VARCHAR NOT NULL,
@@ -10,10 +11,10 @@
     PRIMARY KEY (id)
 );`
 
-#cassandra
-docker run -d --name cassandra -p 9042:9042 cassandra
-docker exec -it cassandra bash
-cqlsh
+#cassandra steps
+* docker run -d --name cassandra -p 9042:9042 cassandra
+* docker exec -it cassandra bash
+* cqlsh
 * create a keyspace called 'my-cassandra-test' using 'SimpleStrategy' class for data replication
 `CREATE KEYSPACE my_cassandra_test WITH REPLICATION={'class': 'SimpleStrategy', 'replication_factor': 1};`
 * list all existing keyspaces
